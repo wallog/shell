@@ -1,0 +1,28 @@
+#!/bin/bash
+####Standard Variables Configure####
+
+#global
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+NC='\033[0m'
+etcdDir="/etc/etcd"
+k8sDir="/etc/kubernetes"
+etcDir="/etc/systemd/system"
+systemLibDir="/lib/systemd/system"
+kubeletVarDir="/var/lib/kubelet"
+kubeLogDir="/var/log/kubernetes"
+hostName=$(hostname)
+KUBE_APISERVER="https://$hostIP:6443"
+BOOTSTRAP_TOKEN=$(head -c 16 /dev/urandom | od -An -t x | tr -d ' ')
+passWD=$(head -c 32 /dev/urandom | base64)
+cniDir="/opt/cni"
+basicDir=$(pwd)
+
+#private
+basicDir=$(pwd)
+hostIP="" #manual
+etcdip="" #manual
+interFace="eth0" #manual
+kmaster="" #manual hostname
+knodes="" #manual hostname
